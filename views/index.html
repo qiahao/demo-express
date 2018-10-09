@@ -25,12 +25,15 @@
       axios({
         url: '/user/list',
       }).then(data => {
-        console.log('get', data)
-        
+        var li = [], html = ''
+        if (data && data.data && data.data.code == 0 && data.data.data) {
+          li = data.data.data.map(item => `<li>姓名：${item.name}，年龄：${item.age}， 生日：${item.birthday}</li>`)
+          html = `<ul>${li.join('')}</ul>`
+        }
+        $('#content').html(html)
       })
     }
     function handlerAdd() {
-      console.log('dddd')
       var user = {
         name: $('input[name="name"]').val(),
         age: $('input[name="age"]').val(),

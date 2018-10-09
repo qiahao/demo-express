@@ -11,8 +11,6 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
   var user = req.body
   daoUser.add(user, (err, results, fields) => {
-    console.log('err', err)
-    console.log('results', results)
     return res.json(results)
   })
 })
