@@ -39,11 +39,5 @@ app.get('/', (req, res) => {
 
 app.use('/user', routeUser)
 
-// app.get('/user', (req, res) => {
-//   user.getList((err, results, fields) => {
-//     return res.json(results)
-//   })
-// })
-
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 module.exports = app
