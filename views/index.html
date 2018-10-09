@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>title</title>
+</head>
+
+<body>
+
+  <button onclick="handlerGetList()">刷新</button>
+  <div id="content"></div>
+    <div>名字：<input type="text" name="name" /></div>
+    <div>年龄：<input type="text" name="age" /></div>
+    <div>生日：<input type="text" name="birthday" /></div>
+    <button onclick="handlerAdd()">添加</button>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script>
+    axios.baseUrl = 'http://localhost:3000'
+    function handlerGetList() {
+      axios({
+        url: '/user/list',
+      }).then(data => {
+        console.log('get', data)
+        
+      })
+    }
+    function handlerAdd() {
+      console.log('dddd')
+      var user = {
+        name: $('input[name="name"]').val(),
+        age: $('input[name="age"]').val(),
+        birthday: $('input[name="birthday"]').val()
+      }
+
+      axios({
+        url: '/user',
+        method: 'POST',
+        data: user
+      }).then(data => {
+        console.log('post', data)
+      })
+    }
+  </script>
+</body>
+
+</html>
