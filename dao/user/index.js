@@ -15,8 +15,8 @@ user.update = function(cb) {
   var sql = `select * from user;`
   db(sql, cb)
 }
-user.del = function(cb) {
-  var sql = 'select * from user;'
+user.del = function(id, cb) {
+  var sql = `DELETE FROM user WHERE id=${id}`
   db(sql, cb)
 }
 

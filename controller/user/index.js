@@ -36,15 +36,15 @@ router.put('/', function(req, res) {
   })
 })
 
-router.delete('/', function(req, res) {
-  serviceUser.del((err, results, fields) => {
+router.delete('/:id', function(req, res) {
+  var id = req.params.id
+  serviceUser.del(id, (err, results, fields) => {
     return res.json(results)
   })
 })
 
 router.get('/list', function(req, res) {
   serviceUser.getList((err, results, fields) => {
-    console.log('results', results)
     return res.json({
       code: 0,
       data: results,
