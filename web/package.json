@@ -1,0 +1,92 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.5",
+    "@vue/cli-plugin-eslint": "^3.0.5",
+    "@vue/cli-service": "^3.0.5",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {
+      "indent": ["error", 2],
+      "linebreak-style": ["off", "unix"],
+      "semi": ["error", "never"],
+      "no-inner-declarations": ["off"],
+      "no-debugger": ["off"],
+      "no-console": ["off"],
+      "no-undef": [2],
+      "block-spacing": ["error", "always"],
+      "brace-style": ["error", "1tbs", {
+        "allowSingleLine": true
+      }],
+      "comma-spacing": ["error", {
+        "before": false,
+        "after": true
+      }],
+      "comma-dangle": ["error", "never"],
+      "computed-property-spacing": ["error", "never"],
+      "func-call-spacing": ["error", "never"],
+      "function-paren-newline": ["error", "consistent"],
+      "key-spacing": ["error", {
+        "afterColon": true
+      }],
+      "keyword-spacing": ["error", {
+        "before": true,
+        "after": true
+      }],
+      "lines-between-class-members": ["error", "always"],
+      "no-multiple-empty-lines": ["error", {
+        "max": 1,
+        "maxEOF": 1
+      }],
+      "no-unneeded-ternary": ["error"],
+      "no-whitespace-before-property": ["error"],
+      "nonblock-statement-body-position": ["error", "below"],
+      "object-curly-spacing": ["error", "always"],
+      "quotes": ["error", "single", {
+        "allowTemplateLiterals": true
+      }],
+      "space-before-blocks": ["error", "always"],
+      "space-before-function-paren": ["error", "never"],
+      "spaced-comment": ["error", "always"],
+      "space-unary-ops": ["error", {
+        "words": true,
+        "nonwords": false
+      }],
+      "space-infix-ops": ["error"]
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
