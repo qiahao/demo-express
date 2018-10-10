@@ -2,7 +2,7 @@
   <div class="about">
     <h1>This is an about page</h1>
     <ul>
-      <li v-for="(item, index) in list" :key="index">{{item.name}} {{item.age}} {{item.dirthday}}</li>
+      <li v-for="(item, index) in list" :key="index">{{item.name}} {{item.age}} {{item.birthday}}</li>
     </ul>
   </div>
 </template>
