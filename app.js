@@ -4,7 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var app = express()
 // var user = require('./dao/user')
-var routeUser = require('./route/user')
+var controllerUser = require('./controller/user')
 
 app.engine('html', ejs.__express);
 app.set('view engine', 'html');
@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.use('/user', routeUser)
+app.use('/user', controllerUser)
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 module.exports = app 
