@@ -3,7 +3,6 @@ var ejs = require('ejs');
 var path = require('path');
 var bodyParser = require('body-parser');
 var app = express()
-// var user = require('./dao/user')
 var controllerUser = require('./controller/user')
 
 app.engine('html', ejs.__express);
@@ -36,8 +35,12 @@ app.get('/', (req, res) => {
   return res.render('index')
 })
 
-
-app.use('/user', controllerUser)
+// api user
+app.get('/user', controllerUser.get)
+app.post('/user', controllerUser.add)
+app.put('/user', controllerUser.update)
+app.delete('/user', controllerUser.del)
+app.get('/user/list', controllerUser.getList)
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 module.exports = app 

@@ -1,23 +1,23 @@
 var daoUser = require('../../dao/user')
-var user = {} 
+var login = require('./login')
 
-user.get = function (cb) {
+exports.get = function (cb) {
   daoUser.get(cb)  
 }
-user.add = function(user, cb) {
+exports.add = function(user, cb) {
   
   daoUser.add(user, cb)
 }
 
-user.put = function(user, cb) {
+exports.put = function(user, cb) {
   daoUser.update(user, cb)
 }
 
-user.del = function(id, cb) {
+exports.del = function(id, cb) {
   daoUser.del(id, cb)
 }
 
-user.getList = function(cb) {
+exports.getList = function(cb) {
   daoUser.getList(cb)
 }
-module.exports = user
+exports.login = login
