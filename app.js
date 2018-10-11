@@ -3,16 +3,17 @@ var ejs = require('ejs');
 var path = require('path');
 var bodyParser = require('body-parser');
 var api = require('./api');
+var cookieParser = require('cookie-parser')
 var app = express()
 
-
 app.engine('html', ejs.__express);
-app.set('view engine', 'html');
-app.set('views', path.join(__dirname, 'views'));
+app.use(cookieParser())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/public', express.static('public'))
 app.use(express.static('views'))
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(function (req, res, next) {
 
