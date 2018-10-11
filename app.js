@@ -2,8 +2,9 @@ var express = require('express')
 var ejs = require('ejs');
 var path = require('path');
 var bodyParser = require('body-parser');
+var api = require('./api');
 var app = express()
-var controllerUser = require('./controller/user')
+
 
 app.engine('html', ejs.__express);
 app.set('view engine', 'html');
@@ -35,12 +36,8 @@ app.get('/', (req, res) => {
   return res.render('index')
 })
 
-// api user
-app.get('/user', controllerUser.get)
-app.post('/user', controllerUser.add)
-app.put('/user', controllerUser.update)
-app.delete('/user', controllerUser.del)
-app.get('/user/list', controllerUser.getList)
+// api route
+app.use('/api', api)
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
 module.exports = app 
