@@ -13,21 +13,20 @@
   <button onclick="handlerGetList()">刷新</button>
   <div id="content"></div>
     <div>名字：<input type="text" name="name" /></div>
-    <div>年龄：<input type="text" name="age" /></div>
     <div>生日：<input type="text" name="birthday" /></div>
+    <div>手机号：<input type="text" name="phone" /></div>
     <button onclick="handlerAdd()">添加</button>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="/public/api/index.js"></script>
   <script>
-    axios.baseUrl = 'http://localhost:3000'
+    // axios.baseUrl = 'http://localhost:3000'
     function handlerGetList() {
-      axios({
-        url: '/user/list',
-      }).then(data => {
+      api.user.getList().then(data => {
         var li = [], html = ''
         if (data && data.data && data.data.code == 0 && data.data.data) {
-          li = data.data.data.map(item => `<li>姓名：${item.name}，年龄：${item.age}， 生日：${item.birthday}</li>`)
+          li = data.data.data.map(item => `<li>姓名：${item.name}， 生日：${item.birthday}</li>`)
           html = `<ul>${li.join('')}</ul>`
         }
         $('#content').html(html)
@@ -36,15 +35,10 @@
     function handlerAdd() {
       var user = {
         name: $('input[name="name"]').val(),
-        age: $('input[name="age"]').val(),
+        phone: $('input[name="phone"]').val(),
         birthday: $('input[name="birthday"]').val()
       }
-
-      axios({
-        url: '/user',
-        method: 'POST',
-        data: user
-      }).then(data => {
+      api.user.add(user).then(data => {
         console.log('post', data)
       })
     }
