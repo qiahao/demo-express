@@ -13,6 +13,5 @@ module.exports = function login(req, res, next) {
         msg: '账号或密码错误'
       })
     }
-    
   })
 }

@@ -7,5 +7,6 @@ app.post('', user.add)
 app.put('', user.update)
 app.delete('', user.del)
 app.get('/list', user.getList)
+app.post('/login', user.login)
 
 module.exports = app
