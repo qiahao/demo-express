@@ -4,11 +4,12 @@ var jwt = require('../utils/jwt')
 var user = require('./src/user')
 app.use(function(req, res, next) {
   let { url = '' } = req;
-  if (url.indexOf('/user') > -1 && ) { //需要校验登录态
+  if (url.indexOf('/user/login') == -1) { //需要校验登录态
+    return next()
     let header = ctx.request.header;
-    let { loginedtoken } = header;
-    if (loginedtoken) {
-      let result = verifyToken(loginedtoken);
+    let { token } = header;
+    if (token) {
+      let result = verifyToken(token);
       let { uid } = result;
       if (uid) {
         ctx.state = { uid };

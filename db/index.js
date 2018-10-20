@@ -1,7 +1,7 @@
 var mysql = require('mysql')
 var config = require('./config')
 
-var db = function (sql, cb) {
+var db = function (sql, values, cb) {
   var connection = mysql.createConnection(config)
   connection.connect(function(err) {
     if (err) {
@@ -9,7 +9,7 @@ var db = function (sql, cb) {
       return;
     }
   });
-  connection.query(sql, function (err, results, fields) {
+  connection.query(sql, values, function (err, results, fields) {
     cb(err, results, fields)
   });
   connection.end()

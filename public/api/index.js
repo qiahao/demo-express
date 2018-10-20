@@ -18,6 +18,13 @@ var api =
       return axios({
         url: '/api/user/list'
       })
+    },
+    login(data) {
+      return axios({
+        url: '/api/user/login',
+        data,
+        method: 'POST'
+      })
     }
   }
 }
